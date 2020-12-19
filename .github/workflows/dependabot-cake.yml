@@ -1,0 +1,15 @@
+name: check and update cake references
+on:
+  schedule:
+    # run everyday at 06:00
+    - cron:  '0 6 * * *'
+
+  # run manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  dependabot-cake:
+    runs-on: ubuntu-latest # linux, because this is a docker-action
+    steps:
+      - name: check/update cake dependencies
+        uses: augustoproiete-actions/nils-org--dependabot-cake-action@v1
